@@ -1,4 +1,4 @@
-import useForm from 'hooks/useForm';
+import useForm from 'shared/hooks/useForm';
 import Button from 'shared/Button/Button';
 import TextField from 'shared/TextField/TextField';
 import fields from './fields';
