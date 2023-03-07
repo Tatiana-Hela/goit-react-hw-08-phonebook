@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { getContacts } from 'redux/contacts/contacts-selector';
 import { useEffect } from 'react';
-import css from '../App/App.module.css';
+import css from '../ContactsPage/ContactsPage.module.css';
 
 import { fetchContacts } from 'redux/contacts/contacts-operations';
 
@@ -10,13 +10,13 @@ import ContactList from 'components/ContactList/ContactList';
 import Filter from 'components/Filter/Filter';
 import Section from 'components/Section/Section';
 
-const App = () => {
+const ContactsPage = () => {
   const contacts = useSelector(getContacts);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchContacts())
-  },[dispatch])
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   // console.log(contacts);
   const isContacts = Boolean(contacts.length);
@@ -38,4 +38,4 @@ const App = () => {
     </div>
   );
 };
-export default App;
+export default ContactsPage;

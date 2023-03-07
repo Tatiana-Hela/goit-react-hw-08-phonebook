@@ -1,0 +1,26 @@
+.link {
+  color: black;
+  margin-right: 10px;
+  text-decoration: none;
+}
+.link:hover {
+  color: rgb(22, 173, 179);
+}
+.link:global(.active) {
+  color: rgb(22, 173, 179);
+}
+.wrapperLink {
+  display: flex;
+  justify-content: end;
+}
+.linkContacts {
+  color: black;
+  text-decoration: none;
+  margin-right: auto;
+}
+.linkContacts:hover {
+  color: rgb(22, 173, 179);
+}
+.linkContacts:global(.active) {
+  color: rgb(22, 173, 179);
+}
