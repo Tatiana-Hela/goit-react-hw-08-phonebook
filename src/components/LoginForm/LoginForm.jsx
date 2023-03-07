@@ -21,7 +21,7 @@ const LoginForm = ({ onSubmit }) => {
         handleChange={handleChange}
         {...fields.password}
       />
-      <Button type="submit">Login</Button>
+      <Button>Login</Button>
     </form>
   );
 };
