@@ -3,12 +3,12 @@ import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contacts/contacts-operations';
 import css from '../ContactItem/ContactItem.module.css';
 
-const ContactItem = ({ id, name, phone }) => {
+const ContactItem = ({ id, name, number }) => {
   const dispatch = useDispatch();
   return (
     <li className={css.item} key={id}>
       <p className={css.info}>
-        {name}: {phone}
+        {name}: {number}
       </p>
       <button
         className={css.button}
@@ -26,5 +26,5 @@ export default ContactItem;
 ContactItem.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string.isRequired,
-  phone: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
 };
