@@ -3,9 +3,6 @@ import css from '../UserAuth/UserAuth.module.css';
 const UserAuth = () => {
   return (
     <div className={css.wrapperLink}>
-      <NavLink to="/contacts" className={css.linkContacts}>
-        Contacts
-      </NavLink>
       <NavLink to="/register" className={css.link}>
         Register
       </NavLink>

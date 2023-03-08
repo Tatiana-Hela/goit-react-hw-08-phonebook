@@ -1,4 +1,17 @@
 .header {
   padding: 20px;
   border-bottom: 1px solid grey;
+  display: flex;
+  align-items: center;
+}
+.linkContacts {
+  color: black;
+  text-decoration: none;
+  margin-right: auto;
+}
+.linkContacts:hover {
+  color: rgb(22, 173, 179);
+}
+.linkContacts:global(.active) {
+  color: rgb(22, 173, 179);
 }

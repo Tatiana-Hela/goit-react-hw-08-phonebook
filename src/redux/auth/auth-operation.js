@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { login, signup } from 'services/auth';
+import { getCurrent, login, logout, signup } from 'services/auth';
 
 export const registration = createAsyncThunk(
   'auth/signup',
@@ -19,6 +19,31 @@ export const authorization = createAsyncThunk(
     try {
       const { data: result } = await login(data);
       return result;
+    } catch ({ response }) {
+      return rejectWithValue(response);
+    }
+  }
+);
+
+export const currentUser = createAsyncThunk(
+  'auth/current',
+  async (_, { rejectWithValue, getState }) => {
+    try {
+      const { auth } = getState();
+      const data = await getCurrent(auth.token);
+      return data;
+    } catch ({ response }) {
+      return rejectWithValue(response);
+    }
+  }
+);
+
+export const logoutUser = createAsyncThunk(
+  'auth/logout',
+  async (_, { rejectWithValue }) => {
+    try {
+      const data = await logout();
+      return data;
     } catch ({ response }) {
       return rejectWithValue(response);
     }
