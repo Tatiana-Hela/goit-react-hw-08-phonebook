@@ -53,8 +53,7 @@ const authSlice = createSlice({
       })
       .addCase(currentUser.fulfilled, (state, { payload }) => {
         state.loading = false;
-        state.user = payload.user;
-        state.token = payload.token;
+        state.user = payload;
         state.isLogin = true;
       })
       .addCase(currentUser.rejected, (state, { payload }) => {
@@ -68,10 +67,9 @@ const authSlice = createSlice({
       })
       .addCase(logoutUser.fulfilled, (state, { payload }) => {
         state.loading = false;
-        if (payload.user) {
-          state.user = {};
-          state.isLogin = false;
-        }
+        state.token = '';
+        state.user = {};
+        state.isLogin = false;
       })
       .addCase(logoutUser.rejected, (state, { payload }) => {
         state.loading = false;

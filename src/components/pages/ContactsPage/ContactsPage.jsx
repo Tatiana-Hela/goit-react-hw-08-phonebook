@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { getContacts } from 'redux/contacts/contacts-selector';
+import { selectContacts } from 'redux/contacts/contacts-selector';
 import { useEffect } from 'react';
 import css from '../ContactsPage/ContactsPage.module.css';
 
@@ -11,7 +11,7 @@ import Filter from 'components/Filter/Filter';
 import Section from 'components/Section/Section';
 
 const ContactsPage = () => {
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
   useEffect(() => {

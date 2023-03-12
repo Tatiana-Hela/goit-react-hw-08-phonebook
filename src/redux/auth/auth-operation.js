@@ -3,10 +3,11 @@ import { getCurrent, login, logout, signup } from 'services/auth';
 
 export const registration = createAsyncThunk(
   'auth/signup',
-  async (data, { rejectWithValue }) => {
+  async (credentials, { rejectWithValue }) => {
     try {
-      const { data: result } = await signup(data);
-      return result;
+      const data = await signup(credentials);
+      console.log(data);
+      return data;
     } catch ({ response }) {
       return rejectWithValue(response);
     }
@@ -15,10 +16,10 @@ export const registration = createAsyncThunk(
 
 export const authorization = createAsyncThunk(
   'auth/login',
-  async (data, { rejectWithValue }) => {
+  async (credentials, { rejectWithValue }) => {
     try {
-      const { data: result } = await login(data);
-      return result;
+      const data = await login(credentials);
+      return data;
     } catch ({ response }) {
       return rejectWithValue(response);
     }
@@ -35,6 +36,14 @@ export const currentUser = createAsyncThunk(
     } catch ({ response }) {
       return rejectWithValue(response);
     }
+  },
+  {
+    condition: (_, { getState }) => {
+      const { auth } = getState();
+      if (!auth.token) {
+        return false;
+      }
+    },
   }
 );
 

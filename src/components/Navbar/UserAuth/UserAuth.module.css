@@ -11,7 +11,7 @@
 }
 .wrapperLink {
   display: flex;
-  /* justify-content: end; */
+  margin-left: auto;
 }
 .linkContacts {
   color: black;
