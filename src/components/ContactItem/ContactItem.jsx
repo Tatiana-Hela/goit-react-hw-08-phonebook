@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contacts/contacts-operations';
+import { DeleteIcon } from '@chakra-ui/icons';
 import css from '../ContactItem/ContactItem.module.css';
 
 const ContactItem = ({ id, name, number }) => {
@@ -15,7 +16,7 @@ const ContactItem = ({ id, name, number }) => {
         type="button"
         onClick={() => dispatch(deleteContact(id))}
       >
-        Delete
+        <DeleteIcon />
       </button>
     </li>
   );

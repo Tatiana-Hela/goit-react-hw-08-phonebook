@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutUser } from 'redux/auth/auth-operation';
 import { selectUser } from 'redux/auth/auth-selectors';
-
+import { Icon } from '@chakra-ui/icons';
+import { FiLogOut } from 'react-icons/fi';
 import css from '../UserMenu/UserMenu.module.css';
 
 const UserMenu = () => {
@@ -17,7 +18,7 @@ const UserMenu = () => {
     <div className={css.wrapper}>
       <p className={css.text}>{name}</p>
       <button className={css.button} onClick={onLogout}>
-        Logout
+        Log out <Icon as={FiLogOut} />
       </button>
     </div>
   );
