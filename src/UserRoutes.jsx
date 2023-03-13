@@ -1,10 +1,9 @@
-import { lazy, Suspense } from 'react';
+import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
+import RestrictedRoute from 'components/RestrictedRoute.js/RestrictedRoute';
+import Layout from 'Layout';
+import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-const PublicRoute = lazy(() => import('./components/PublicRoute/PublicRoute'));
-const PrivateRoute = lazy(() =>
-  import('./components/PrivateRoute/PrivateRoute')
-);
 const HomePage = lazy(() => import('./components/pages/HomePage/HomePage'));
 const ContactsPage = lazy(() =>
   import('./components/pages/ContactsPage/ContactsPage')
@@ -16,18 +15,33 @@ const LoginPage = lazy(() => import('./components/pages/LoginPage/LoginPage'));
 
 const UserRoutes = () => {
   return (
-    <Suspense>
-      <Routes>
-        <Route element={<PrivateRoute />}>
-          <Route path="/contacts" element={<ContactsPage />} />
-        </Route>
-        <Route element={<PublicRoute />}>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/login" element={<LoginPage />} />
-        </Route>
-      </Routes>
-    </Suspense>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+
+        <Route
+          path="/register"
+          element={
+            <RestrictedRoute
+              redirectTo="/contacts"
+              component={<RegisterPage />}
+            />
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <RestrictedRoute redirectTo="/contacts" component={<LoginPage />} />
+          }
+        />
+        <Route
+          path="/contacts"
+          element={
+            <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
+          }
+        />
+      </Route>
+    </Routes>
   );
 };
 export default UserRoutes;

@@ -1,23 +1,18 @@
-import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
-
 import UserMenu from 'components/Navbar/UserMenu/UserMenu';
 import UserAuth from './UserAuth/UserAuth';
-import { selectIsUserLogin } from 'redux/auth/auth-selectors';
+import { useAuth } from 'shared/hooks/useAuth';
 
 import css from '../Navbar/Navbar.module.css';
+import Navigation from './Navigation/Navigation';
 
 const Navbar = () => {
-  const isLogin = useSelector(selectIsUserLogin);
+  const { isLoggedIn } = useAuth();
+
+  console.log(isLoggedIn);
   return (
     <header className={css.header}>
-      {isLogin && (
-        <NavLink to="/contacts" className={css.linkContacts}>
-          Contacts
-        </NavLink>
-      )}
-      {isLogin && <UserMenu />}
-      {!isLogin && <UserAuth />}
+      <Navigation />
+      {isLoggedIn ? <UserMenu /> : <UserAuth />}
     </header>
   );
 };
