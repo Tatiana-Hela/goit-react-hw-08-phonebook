@@ -69,7 +69,6 @@ const LoginForm = ({ onSubmit }) => {
             onChange={handleChange}
             value={password}
             name="password"
-            pattern="((?=.*d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})"
             title="Password must be at least 7 characters long, include letters and numbers"
           />
           <InputRightElement width="4.5rem">

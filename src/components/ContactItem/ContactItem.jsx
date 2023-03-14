@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contacts/contacts-operations';
 import { DeleteIcon, EditIcon } from '@chakra-ui/icons';
-import css from '../ContactItem/ContactItem.module.css';
 import { IconButton, ListItem, Text } from '@chakra-ui/react';
 
 const ContactItem = ({ id, name, number }) => {

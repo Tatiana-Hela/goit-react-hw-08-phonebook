@@ -2,7 +2,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setFilter } from 'redux/filter/filter-slice';
 import { selectFilter } from 'redux/filter/filter-selector';
 import { SearchIcon } from '@chakra-ui/icons';
-import css from '../Filter/Filter.module.css';
 import {
   FormControl,
   FormLabel,

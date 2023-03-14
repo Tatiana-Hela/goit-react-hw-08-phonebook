@@ -14,8 +14,6 @@ import { MdAddCircle } from 'react-icons/md';
 import { BsFillPersonFill } from 'react-icons/bs';
 import { addContact } from 'redux/contacts/contacts-operations';
 
-import css from '../ContactForm/ContactForm.module.css';
-
 const ContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');

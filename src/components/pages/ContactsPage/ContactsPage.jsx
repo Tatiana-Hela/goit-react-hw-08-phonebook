@@ -33,6 +33,7 @@ const ContactsPage = () => {
     >
       <Box
         width="400px"
+        height="320px"
         display="flex"
         flexDirection="column"
         alignItems="center"
@@ -46,7 +47,13 @@ const ContactsPage = () => {
         <ContactForm />
       </Box>
       <Box width="600px" display="flex" flexDirection="column">
-        <Text fontSize="24px" textAlign="center" mb="20px" fontWeight="500">
+        <Text
+          fontSize="24px"
+          textAlign="center"
+          mt="24px"
+          mb="20px"
+          fontWeight="500"
+        >
           Contacts
         </Text>
         {isContacts && <Filter />}
