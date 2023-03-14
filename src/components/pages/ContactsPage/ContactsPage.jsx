@@ -8,7 +8,7 @@ import { fetchContacts } from 'redux/contacts/contacts-operations';
 import ContactForm from 'components/ContactForm/ContactForm';
 import ContactList from 'components/ContactList/ContactList';
 import Filter from 'components/Filter/Filter';
-import Section from 'components/Section/Section';
+import { Box, Text } from '@chakra-ui/react';
 
 const ContactsPage = () => {
   const contacts = useSelector(selectContacts);
@@ -21,11 +21,34 @@ const ContactsPage = () => {
   // console.log(contacts);
   const isContacts = Boolean(contacts.length);
   return (
-    <div className={css.container}>
-      <Section title="Phonebook">
+    <Box
+      display="flex"
+      justifyContent="center"
+      gap="100px"
+      ml="auto"
+      mr="auto"
+      pt="60px"
+      pl="60px"
+      pr="60px"
+    >
+      <Box
+        width="400px"
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        p="6"
+        borderRadius="6px"
+        boxShadow="0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);"
+      >
+        <Text fontSize="24px" fontWeight="500" mb="20px">
+          Add contacts
+        </Text>
         <ContactForm />
-      </Section>
-      <Section title="Contacts">
+      </Box>
+      <Box width="600px" display="flex" flexDirection="column">
+        <Text fontSize="24px" textAlign="center" mb="20px" fontWeight="500">
+          Contacts
+        </Text>
         {isContacts && <Filter />}
         {isContacts && <ContactList />}
 
@@ -34,8 +57,8 @@ const ContactsPage = () => {
             Your phonebook is empty. Please add contact.
           </p>
         )}
-      </Section>
-    </div>
+      </Box>
+    </Box>
   );
 };
 export default ContactsPage;

@@ -47,18 +47,21 @@ const LoginForm = ({ onSubmit }) => {
           Email
         </FormLabel>
         <Input
+          focusBorderColor="green.300"
           id="email"
           type="email"
           placeholder="Enter email"
           onChange={handleChange}
           value={email}
           name="email"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
         />
         <FormLabel mt="4" htmlFor="password">
           Password
         </FormLabel>
         <InputGroup size="md">
           <Input
+            focusBorderColor="green.300"
             id="password"
             pr="4.5rem"
             type={show ? 'text' : 'password'}
@@ -66,6 +69,8 @@ const LoginForm = ({ onSubmit }) => {
             onChange={handleChange}
             value={password}
             name="password"
+            pattern="((?=.*d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})"
+            title="Password must be at least 7 characters long, include letters and numbers"
           />
           <InputRightElement width="4.5rem">
             <Button h="1.75rem" size="sm" onClick={handleClick}>
@@ -73,7 +78,6 @@ const LoginForm = ({ onSubmit }) => {
             </Button>
           </InputRightElement>
         </InputGroup>
-
         <Button type="submit" mr="auto" ml="auto" mt="10" colorScheme="green">
           Log in
         </Button>

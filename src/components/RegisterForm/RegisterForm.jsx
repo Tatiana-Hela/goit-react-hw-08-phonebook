@@ -9,6 +9,7 @@ import {
   FormControl,
   FormLabel,
 } from '@chakra-ui/react';
+import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 
 const RegisterForm = ({ onSubmit }) => {
   const [state, setState] = useState({ ...initialState });
@@ -46,6 +47,7 @@ const RegisterForm = ({ onSubmit }) => {
       >
         <FormLabel htmlFor="name">Name</FormLabel>
         <Input
+          focusBorderColor="green.300"
           id="name"
           type="text"
           placeholder="Enter name"
@@ -57,18 +59,21 @@ const RegisterForm = ({ onSubmit }) => {
           Email
         </FormLabel>
         <Input
+          focusBorderColor="green.300"
           id="email"
           type="email"
           placeholder="Enter email"
           onChange={handleChange}
           value={email}
           name="email"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
         />
         <FormLabel mt="4" htmlFor="password">
           Password
         </FormLabel>
         <InputGroup size="md">
           <Input
+            focusBorderColor="green.300"
             id="password"
             pr="4.5rem"
             type={show ? 'text' : 'password'}
@@ -76,10 +81,12 @@ const RegisterForm = ({ onSubmit }) => {
             onChange={handleChange}
             value={password}
             name="password"
+            pattern="((?=.*d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{7,20})"
+            title="Password must be at least 7 characters long, include letters and numbers"
           />
           <InputRightElement width="4.5rem">
             <Button h="1.75rem" size="sm" onClick={handleClick}>
-              {show ? 'Hide' : 'Show'}
+              {show ? <ViewOffIcon /> : <ViewIcon />}
             </Button>
           </InputRightElement>
         </InputGroup>

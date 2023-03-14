@@ -1,5 +1,17 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import {
+  Button,
+  Input,
+  InputGroup,
+  FormControl,
+  FormLabel,
+  Icon,
+  InputLeftElement,
+} from '@chakra-ui/react';
+import { PhoneIcon } from '@chakra-ui/icons';
+import { MdAddCircle } from 'react-icons/md';
+import { BsFillPersonFill } from 'react-icons/bs';
 import { addContact } from 'redux/contacts/contacts-operations';
 
 import css from '../ContactForm/ContactForm.module.css';
@@ -33,38 +45,50 @@ const ContactForm = () => {
     setNumber('');
   };
   return (
-    <form onSubmit={handleSubmit} className={css.form}>
-      <label className={css.label}>
-        Name
-        <input
-          className={css.input}
-          type="text"
-          name="name"
-          value={name}
-          placeholder="Enter name..."
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          onChange={handleChange}
-          required
-        />
-      </label>
-      <label className={css.label}>
-        Number
-        <input
-          className={css.input}
-          type="tel"
-          name="number"
-          value={number}
-          placeholder="Enter number..."
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          onChange={handleChange}
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          required
-        />
-      </label>
-      <button className={css.button} type="submit">
-        Add contacts
-      </button>
+    <form onSubmit={handleSubmit}>
+      <FormControl width="350px">
+        <FormLabel htmlFor="name">Name</FormLabel>
+        <InputGroup>
+          <InputLeftElement
+            pointerEvents="none"
+            children={<Icon as={BsFillPersonFill} color="grey" />}
+          />
+          <Input
+            id="name"
+            type="text"
+            name="name"
+            value={name}
+            placeholder="Enter name"
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            onChange={handleChange}
+            required
+          />
+        </InputGroup>
+        <FormLabel htmlFor="number" mt="15px">
+          Number
+        </FormLabel>
+        <InputGroup>
+          <InputLeftElement
+            pointerEvents="none"
+            children={<PhoneIcon color="gray" />}
+          />
+          <Input
+            id="number"
+            type="tel"
+            name="number"
+            value={number}
+            placeholder="Enter number"
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            onChange={handleChange}
+            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            required
+          />
+        </InputGroup>
+        <Button type="submit" colorScheme="blue" mt="20px" borderRadius="6px">
+          Add <Icon as={MdAddCircle} width="24px" height="24px" pl="6px" />
+        </Button>
+      </FormControl>
     </form>
   );
 };
