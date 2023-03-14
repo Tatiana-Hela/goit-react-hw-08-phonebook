@@ -5,21 +5,20 @@
   margin-left: auto;
 }
 .text {
-  font-weight: bold;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 500;
   margin: 0;
 }
 .button {
-  padding: 6px;
+  margin-left: 30px;
+  font-size: 22px;
+  padding: 4px 6px;
   border-radius: 6px;
-  border-width: 1px;
   background-color: #fff;
+  color: #007d34;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 4px;
-}
-.button:hover {
-  background-color: red;
-  color: #fff;
-  border-color: red;
 }

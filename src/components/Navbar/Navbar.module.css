@@ -1,11 +1,10 @@
 .header {
   padding: 20px;
-  border-bottom: 1px solid grey;
   display: flex;
   align-items: center;
 }
 .linkContacts {
-  color: black;
+  color: #fff;
   text-decoration: none;
   margin-right: auto;
 }

@@ -1,14 +1,31 @@
-.link {
-  color: black;
+.linkPB {
+  color: #fff;
+  font-size: 26px;
+  font-weight: bold;
   margin-right: 10px;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
-.link:hover {
-  color: rgb(22, 173, 179);
+.link {
+  margin-left: 40px;
+  color: #fff;
+  font-size: 22px;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.link:hover,
+.link:focus {
+  color: #007d34;
+  background-color: #fff;
 }
 .link:global(.active) {
-  color: rgb(22, 173, 179);
+  color: #007d34;
+  background-color: #fff;
 }
-.wrapperLink {
+.wrapper {
   display: flex;
+  align-items: center;
 }

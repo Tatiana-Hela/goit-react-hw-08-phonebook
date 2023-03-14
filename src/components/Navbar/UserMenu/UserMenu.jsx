@@ -16,9 +16,9 @@ const UserMenu = () => {
 
   return (
     <div className={css.wrapper}>
-      <p className={css.text}>{name}</p>
+      <p className={css.text}> Hello, {name}</p>
       <button className={css.button} onClick={onLogout}>
-        Log out <Icon as={FiLogOut} />
+        <Icon as={FiLogOut} />
       </button>
     </div>
   );

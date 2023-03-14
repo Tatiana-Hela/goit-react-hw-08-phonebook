@@ -11,12 +11,23 @@ const HomePage = () => {
   return (
     <div className={css.wrapper}>
       {!isLoggedIn && (
-        <p>
-          Welcome to the Phonebook. <br /> You can store your important contacts
-          here.
-          <br /> Please <NavLink to="/register">register</NavLink> or
-          <NavLink to="/login">login</NavLink> in order to proceed.
-        </p>
+        <>
+          <h1 className={css.title}>Welcome to the Phonebook.</h1>
+          <p className={css.text}>
+            You can store your important contacts here.
+          </p>
+          <p className={css.text}>
+            Please {''}
+            <NavLink to="/register" className={css.link}>
+              register
+            </NavLink>
+            {''} or {''}
+            <NavLink to="/login" className={css.link}>
+              log in {''}
+            </NavLink>
+            in order to proceed.
+          </p>
+        </>
       )}
       {isLoggedIn && (
         <p>

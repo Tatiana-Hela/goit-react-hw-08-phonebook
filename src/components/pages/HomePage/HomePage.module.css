@@ -1,4 +1,27 @@
 .wrapper {
-  margin-top: 50px;
+  margin-top: 100px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.title {
+  width: 600px;
+  font-size: 40px;
+  font-weight: bold;
+  border: 2px solid green;
+  border-radius: 6px;
+  margin-bottom: 40px;
+}
+.link {
+  color: green;
+  font-weight: 600;
+}
+.link:hover,
+.link:focus {
+  text-decoration: underline;
+}
+
+.text {
+  font-size: 30px;
 }
