@@ -30,11 +30,19 @@ const HomePage = () => {
         </>
       )}
       {isLoggedIn && (
-        <p>
-          Welcome, {name} to your Phonebook. <br />
-          Go to
-          <NavLink to="/contacts">contacts</NavLink> to manage your saved ones.
-        </p>
+        <>
+          <h1 className={css.title}>
+            Welcome, <b className={css.user}>{name} </b>
+            to your Phonebook.
+          </h1>
+          <p className={css.text}>
+            Go to {''}
+            <NavLink to="/contacts" className={css.link}>
+              contacts
+            </NavLink>{' '}
+            to manage your saved ones.
+          </p>
+        </>
       )}
     </div>
   );
