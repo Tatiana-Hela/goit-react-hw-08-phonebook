@@ -15,7 +15,7 @@ export const deleteContactById = async contactId => {
   return data;
 };
 
-export const updateContactById = async (contactId, values) => {
-  const { data } = await instance.patch(`/contacts/${contactId}`, values);
+export const updateContactById = async (contactId, state) => {
+  const { data } = await instance.patch(`/contacts/${contactId}`, state);
   return data;
 };
