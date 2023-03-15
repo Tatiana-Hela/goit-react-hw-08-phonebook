@@ -37,6 +37,9 @@ const RegisterForm = ({ onSubmit }) => {
 
     if (!state.name) {
       errors.name = 'Name is required';
+    } else if (state.password.length < 2) {
+      errors.name =
+        'Name must contain a minimum of 2 letters and a maximum of 20 letters';
     }
     if (!state.email) {
       errors.email = 'Email is required';
@@ -53,7 +56,6 @@ const RegisterForm = ({ onSubmit }) => {
     }
 
     setErrors(errors);
-    console.log(errors);
     return Object.keys(errors).length === 0;
   };
 
