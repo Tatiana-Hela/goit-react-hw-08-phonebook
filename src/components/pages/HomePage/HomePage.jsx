@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { selectUser } from 'redux/auth/auth-selectors';
-import { useAuth } from 'shared/hooks/useAuth';
+import { useAuth } from 'hooks/useAuth';
 import { NavLink } from 'react-router-dom';
 
 import css from '../HomePage/HomePage.module.css';

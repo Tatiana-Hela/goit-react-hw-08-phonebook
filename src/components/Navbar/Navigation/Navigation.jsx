@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { useAuth } from 'shared/hooks/useAuth';
+import { useAuth } from 'hooks/useAuth';
 import { Icon } from '@chakra-ui/react';
 import { RiContactsBookFill } from 'react-icons/ri';
 import css from '../Navigation/Navigation.module.css';

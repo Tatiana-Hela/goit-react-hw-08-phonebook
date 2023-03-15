@@ -1,6 +1,6 @@
 import UserMenu from 'components/Navbar/UserMenu/UserMenu';
 import UserAuth from './UserAuth/UserAuth';
-import { useAuth } from 'shared/hooks/useAuth';
+import { useAuth } from 'hooks/useAuth';
 
 import css from '../Navbar/Navbar.module.css';
 import Navigation from './Navigation/Navigation';

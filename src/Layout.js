@@ -7,7 +7,7 @@ import { Box } from '@chakra-ui/react';
 const Layout = () => {
   return (
     <>
-      <Box backgroundColor="#007D34" boxShadow="lg" rounded="md">
+      <Box backgroundColor="#009300" boxShadow="lg" rounded="md">
         <Navbar />
       </Box>
       <Suspense>

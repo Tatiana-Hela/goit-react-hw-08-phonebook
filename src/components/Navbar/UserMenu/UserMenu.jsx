@@ -1,9 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { logoutUser } from 'redux/auth/auth-operation';
-import { selectUser } from 'redux/auth/auth-selectors';
+import { IconButton } from '@chakra-ui/react';
 import { Icon } from '@chakra-ui/icons';
 import { FiLogOut } from 'react-icons/fi';
 import css from '../UserMenu/UserMenu.module.css';
+
+import { logoutUser } from 'redux/auth/auth-operation';
+import { selectUser } from 'redux/auth/auth-selectors';
 
 const UserMenu = () => {
   const { name } = useSelector(selectUser);
@@ -17,9 +19,9 @@ const UserMenu = () => {
   return (
     <div className={css.wrapper}>
       <p className={css.text}>{name}</p>
-      <button className={css.button} onClick={onLogout}>
-        <Icon as={FiLogOut} />
-      </button>
+      <IconButton className={css.button} onClick={onLogout}>
+        <Icon as={FiLogOut} width="24px" height="24px" />
+      </IconButton>
     </div>
   );
 };

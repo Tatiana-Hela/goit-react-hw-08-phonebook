@@ -1,3 +1,7 @@
+import PropTypes from 'prop-types';
+import Notiflix from 'notiflix';
+import { useDispatch } from 'react-redux';
+import { useState, useCallback } from 'react';
 import {
   Modal,
   ModalOverlay,
@@ -15,8 +19,6 @@ import {
 import { Icon, PhoneIcon } from '@chakra-ui/icons';
 import { BsFillPersonFill } from 'react-icons/bs';
 
-import { useDispatch } from 'react-redux';
-import { useState, useCallback } from 'react';
 import { updateContact } from 'redux/contacts/contacts-operations';
 
 const EditModal = ({ isOpen, handleClose, id, name, number }) => {
@@ -39,7 +41,12 @@ const EditModal = ({ isOpen, handleClose, id, name, number }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(updateContact({ id, state }));
+    dispatch(updateContact({ id, state }))
+      .unwrap()
+      .then(() => Notiflix.Notify.success('Contact edited'))
+      .catch(() =>
+        Notiflix.Notify.failure('Something went wrong...Try reloading the page')
+      );
     handleClose();
   };
 
@@ -47,7 +54,9 @@ const EditModal = ({ isOpen, handleClose, id, name, number }) => {
     <Modal isOpen={isOpen} onClose={handleClose}>
       <ModalOverlay />
       <ModalContent>
-        <ModalHeader>Edit contact</ModalHeader>
+        <ModalHeader textAlign="center" fontSize="22px" fontWeight="500">
+          Edit contact
+        </ModalHeader>
         <ModalCloseButton />
         <ModalBody pb={6}>
           <form onSubmit={handleSubmit}>
@@ -90,10 +99,12 @@ const EditModal = ({ isOpen, handleClose, id, name, number }) => {
                   onChange={handleChange}
                 />
               </InputGroup>
-              <Button type="submit" colorScheme="blue" mr={3}>
+              <Button type="submit" colorScheme="blue" mr={3} mt="20px">
                 Save
               </Button>
-              <Button onClick={handleClose}>Cancel</Button>
+              <Button onClick={handleClose} mt="20px">
+                Cancel
+              </Button>
             </FormControl>
           </form>
         </ModalBody>
@@ -102,3 +113,11 @@ const EditModal = ({ isOpen, handleClose, id, name, number }) => {
   );
 };
 export default EditModal;
+
+EditModal.propTypes = {
+  id: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+  isOpen: PropTypes.func.isRequired,
+  handleClose: PropTypes.func.isRequired,
+};

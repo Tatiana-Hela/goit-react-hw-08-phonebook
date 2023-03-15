@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux';
 import { selectVisibleContacts } from 'redux/filter/filter-selector';
-import { List } from '@chakra-ui/react';
-import css from '../ContactList/ContactList.module.css';
+import { List, Text } from '@chakra-ui/react';
 
 import ContactItem from 'components/ContactItem/ContactItem';
 
@@ -11,9 +10,11 @@ const ContactList = () => {
   return (
     <>
       {contacts.length === 0 && (
-        <p className={css.text}>There is no such contact</p>
+        <Text color="red.400" mt="20px" ml="20px">
+          There is no such contact
+        </Text>
       )}
-      <List mt="20px" display="flex" flexDirection="column" gap="15px">
+      <List mt="20px" display="flex" flexDirection="column" gap="5px">
         {contacts.map(({ id, name, number }) => {
           return <ContactItem key={id} id={id} name={name} number={number} />;
         })}

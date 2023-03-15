@@ -4,7 +4,6 @@ import { selectFilter } from 'redux/filter/filter-selector';
 import { SearchIcon } from '@chakra-ui/icons';
 import {
   FormControl,
-  FormLabel,
   Input,
   InputGroup,
   InputRightElement,
@@ -14,8 +13,7 @@ const Filter = () => {
   const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
   return (
-    <FormControl width="350px">
-      <FormLabel>Find contacts by name</FormLabel>
+    <FormControl width="350px" m="0 auto">
       <InputGroup>
         <InputRightElement
           pointerEvents="none"
@@ -23,7 +21,7 @@ const Filter = () => {
         />
         <Input
           type="text"
-          placeholder="Enter name"
+          placeholder="Find contacts by name"
           value={filter}
           onChange={e => dispatch(setFilter(e.target.value))}
         />

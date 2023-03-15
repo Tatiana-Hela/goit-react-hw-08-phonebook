@@ -11,7 +11,7 @@ const UserAuth = () => {
         <Icon as={MdAppRegistration} /> Register
       </NavLink>
       <NavLink to="/login" className={css.link}>
-        <Icon as={FiLogIn} /> Log in
+        <Icon as={FiLogIn} /> Login
       </NavLink>
     </div>
   );
