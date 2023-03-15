@@ -66,7 +66,7 @@ export const updateContact = createAsyncThunk(
   'contacts/updateContact',
   async ({ id, state }, thunkAPI) => {
     try {
-      const { data } = await updateContactById(id, state);
+      const data = await updateContactById(id, state);
       console.log(data);
       return data;
     } catch ({ response }) {
