@@ -1,10 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { selectContacts } from 'redux/contacts/contacts-selector';
 import { useEffect } from 'react';
-import css from '../ContactsPage/ContactsPage.module.css';
-
 import { fetchContacts } from 'redux/contacts/contacts-operations';
-
 import ContactForm from 'components/ContactForm/ContactForm';
 import ContactList from 'components/ContactList/ContactList';
 import Filter from 'components/Filter/Filter';
@@ -25,11 +22,8 @@ const ContactsPage = () => {
       display="flex"
       justifyContent="center"
       gap="100px"
-      ml="auto"
-      mr="auto"
-      pt="60px"
-      pl="60px"
-      pr="60px"
+      m="0 auto"
+      p="60px 0 60px 60px"
     >
       <Box
         width="400px"
@@ -60,9 +54,17 @@ const ContactsPage = () => {
         {isContacts && <ContactList />}
 
         {!isContacts && (
-          <p className={css.text}>
-            Your phonebook is empty. Please add contact.
-          </p>
+          <Text
+            color="#fff"
+            bg="red.400"
+            p="12px"
+            width="400px"
+            textAlign="center"
+            borderRadius="6px"
+            m="0 auto"
+          >
+            Your phonebook is empty. <br /> Please add contact.
+          </Text>
         )}
       </Box>
     </Box>

@@ -28,9 +28,7 @@ const LoginForm = ({ onSubmit }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(onSubmit);
     onSubmit({ ...state });
-    console.log(onSubmit);
     setState({ ...initialState });
   };
 
