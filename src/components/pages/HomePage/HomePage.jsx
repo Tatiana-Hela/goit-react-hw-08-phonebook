@@ -23,9 +23,9 @@ const HomePage = () => {
             </NavLink>
             {''} or {''}
             <NavLink to="/login" className={css.link}>
-              log in {''}
+              login
             </NavLink>
-            in order to proceed.
+            .
           </p>
         </>
       )}

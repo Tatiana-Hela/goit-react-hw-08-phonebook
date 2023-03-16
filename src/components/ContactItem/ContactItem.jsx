@@ -1,14 +1,21 @@
 import PropTypes from 'prop-types';
-import Notiflix from 'notiflix';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { DeleteIcon, EditIcon } from '@chakra-ui/icons';
-import { Box, IconButton, ListItem, Text } from '@chakra-ui/react';
+import {
+  Box,
+  IconButton,
+  ListItem,
+  Text,
+  Tooltip,
+  useToast,
+} from '@chakra-ui/react';
 
 import { deleteContact } from 'redux/contacts/contacts-operations';
 import EditModal from 'components/EditModal.jsx/EditModal';
 
 const ContactItem = ({ id, name, number }) => {
+  const toast = useToast();
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
 
@@ -18,9 +25,19 @@ const ContactItem = ({ id, name, number }) => {
   const handleDeleteContact = () => {
     dispatch(deleteContact(id))
       .unwrap()
-      .then(() => Notiflix.Notify.success('Contact deleted'))
+      .then(() =>
+        toast({
+          description: 'Contact deleted',
+          position: 'top',
+          status: 'success',
+        })
+      )
       .catch(() =>
-        Notiflix.Notify.failure('Something went wrong...Try reloading the page')
+        toast({
+          description: 'Something went wrong...Try reloading the page',
+          position: 'top',
+          status: 'error',
+        })
       );
   };
 
@@ -43,22 +60,25 @@ const ContactItem = ({ id, name, number }) => {
             {number}
           </Text>
         </Box>
-
-        <IconButton
-          ml="auto"
-          colorScheme="green"
-          aria-label="Edit contact"
-          icon={<EditIcon />}
-          onClick={handleOpenModal}
-        />
-        <IconButton
-          ml="6px"
-          colorScheme="red"
-          aria-label="Delete contact"
-          icon={<DeleteIcon />}
-          type="button"
-          onClick={handleDeleteContact}
-        />
+        <Tooltip label="Edit contact">
+          <IconButton
+            ml="auto"
+            colorScheme="green"
+            aria-label="Edit contact"
+            icon={<EditIcon />}
+            onClick={handleOpenModal}
+          />
+        </Tooltip>
+        <Tooltip label="Delete contact">
+          <IconButton
+            ml="6px"
+            colorScheme="red"
+            aria-label="Delete contact"
+            icon={<DeleteIcon />}
+            type="button"
+            onClick={handleDeleteContact}
+          />
+        </Tooltip>
       </ListItem>
       {isOpen && (
         <EditModal

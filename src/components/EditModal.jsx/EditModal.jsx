@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import Notiflix from 'notiflix';
 import { useDispatch } from 'react-redux';
 import { useState, useCallback } from 'react';
 import {
@@ -15,6 +14,7 @@ import {
   Button,
   InputGroup,
   InputLeftElement,
+  useToast,
 } from '@chakra-ui/react';
 import { Icon, PhoneIcon } from '@chakra-ui/icons';
 import { BsFillPersonFill } from 'react-icons/bs';
@@ -22,6 +22,7 @@ import { BsFillPersonFill } from 'react-icons/bs';
 import { updateContact } from 'redux/contacts/contacts-operations';
 
 const EditModal = ({ isOpen, handleClose, id, name, number }) => {
+  const toast = useToast();
   const initialState = {
     name,
     number,
@@ -43,9 +44,19 @@ const EditModal = ({ isOpen, handleClose, id, name, number }) => {
     e.preventDefault();
     dispatch(updateContact({ id, state }))
       .unwrap()
-      .then(() => Notiflix.Notify.success('Contact edited'))
+      .then(() =>
+        toast({
+          description: 'Contact edited',
+          position: 'top',
+          status: 'success',
+        })
+      )
       .catch(() =>
-        Notiflix.Notify.failure('Something went wrong...Try reloading the page')
+        toast({
+          description: 'Something went wrong...Try reloading the page',
+          position: 'top',
+          status: 'error',
+        })
       );
     handleClose();
   };

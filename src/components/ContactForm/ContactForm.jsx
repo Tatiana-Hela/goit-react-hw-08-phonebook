@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import Notiflix from 'notiflix';
 import {
   Button,
   Input,
@@ -9,6 +8,7 @@ import {
   FormLabel,
   Icon,
   InputLeftElement,
+  useToast,
 } from '@chakra-ui/react';
 import { PhoneIcon } from '@chakra-ui/icons';
 import { MdAddCircle } from 'react-icons/md';
@@ -16,8 +16,8 @@ import { BsFillPersonFill } from 'react-icons/bs';
 
 import { addContact } from 'redux/contacts/contacts-operations';
 
-
 const ContactForm = () => {
+  const toast = useToast();
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
@@ -44,12 +44,18 @@ const ContactForm = () => {
     dispatch(addContact({ name, number }))
       .unwrap()
       .then(() => {
-        Notiflix.Notify.success('Contact added!');
+        toast({
+          description: 'Contact added',
+          position: 'top',
+          status: 'success',
+        });
       })
       .catch(() => {
-        Notiflix.Notify.failure(
-          'Something went wrong...Try reloading the page'
-        );
+        toast({
+          description: 'Something went wrong...Try reloading the page',
+          position: 'top',
+          status: 'error',
+        });
       });
     setName('');
     setNumber('');

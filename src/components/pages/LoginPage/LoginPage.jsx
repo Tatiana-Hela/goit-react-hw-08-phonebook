@@ -1,6 +1,5 @@
-import Notiflix from 'notiflix';
 import { useDispatch, useSelector } from 'react-redux';
-import { Text, Box } from '@chakra-ui/react';
+import { Text, Box, useToast } from '@chakra-ui/react';
 import { ClipLoader } from 'react-spinners';
 
 import { authorization } from 'redux/auth/auth-operation';
@@ -8,6 +7,7 @@ import LoginForm from 'components/LoginForm/LoginForm';
 import { selectIsLoading } from 'redux/auth/auth-selectors';
 
 const LoginPage = () => {
+  const toast = useToast();
   const isLoading = useSelector(selectIsLoading);
   const dispatch = useDispatch();
 
@@ -15,12 +15,19 @@ const LoginPage = () => {
     dispatch(authorization(data))
       .unwrap()
       .then(() => {
-        Notiflix.Notify.success('You are successfully logged in');
+        toast({
+          description: 'You are successfully logged in',
+          position: 'top',
+          status: 'success',
+        });
       })
       .catch(() =>
-        Notiflix.Notify.failure(
-          'Something went wrong...Try reloading the page and enter valid email, password'
-        )
+        toast({
+          description:
+            'Something went wrong...Try reloading the page and enter valid email, password',
+          position: 'top',
+          status: 'error',
+        })
       );
   };
 
@@ -36,15 +43,7 @@ const LoginPage = () => {
           size={100}
         />
       )}
-      <Text
-        width="400px"
-        border="2px solid green"
-        borderRadius="6px"
-        textAlign="center"
-        fontSize="22"
-        mb="5"
-        fontWeight="500"
-      >
+      <Text textAlign="center" fontSize="22" mb="5" fontWeight="500">
         Login
       </Text>
       <LoginForm onSubmit={handleLogin} />
