@@ -1,7 +1,8 @@
 import UserMenu from 'components/Navbar/UserMenu/UserMenu';
 import UserAuth from './UserAuth/UserAuth';
 import { useAuth } from 'hooks/useAuth';
-import { useColorMode, Button, Switch } from '@chakra-ui/react';
+import { SunIcon, MoonIcon } from '@chakra-ui/icons';
+import { useColorMode, Switch } from '@chakra-ui/react';
 import css from '../Navbar/Navbar.module.css';
 import Navigation from './Navigation/Navigation';
 
@@ -9,7 +10,18 @@ function ThemeSwitcher() {
   const { colorMode, toggleColorMode } = useColorMode();
   const isChecked = colorMode === 'dark';
 
-  return <Switch isChecked={isChecked} onChange={toggleColorMode}></Switch>;
+  return (
+    <Switch
+      colorScheme="blue"
+      marginLeft="20px"
+      isChecked={isChecked}
+      onChange={toggleColorMode}
+      icons={{
+        checked: <MoonIcon />,
+        unchecked: <SunIcon />,
+      }}
+    ></Switch>
+  );
 }
 
 const Navbar = () => {
