@@ -5,7 +5,7 @@ import { currentUser } from 'redux/auth/auth-operation';
 import { ClipLoader } from 'react-spinners';
 
 // import AuthLayout from 'components/AuthLayout/AuthLayout';
-import UserRoutes from 'UserRoutes';
+import UserRoutes from 'components/UseRoutes/UserRoutes';
 
 function App() {
   const dispatch = useDispatch();

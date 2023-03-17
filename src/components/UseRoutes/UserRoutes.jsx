@@ -4,14 +4,10 @@ import Layout from 'Layout';
 import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-const HomePage = lazy(() => import('./components/pages/HomePage/HomePage'));
-const ContactsPage = lazy(() =>
-  import('./components/pages/ContactsPage/ContactsPage')
-);
-const RegisterPage = lazy(() =>
-  import('./components/pages/RegisterPage/RegisterPage')
-);
-const LoginPage = lazy(() => import('./components/pages/LoginPage/LoginPage'));
+const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
+const ContactsPage = lazy(() => import('../pages/ContactsPage/ContactsPage'));
+const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
+const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
 
 const UserRoutes = () => {
   return (
