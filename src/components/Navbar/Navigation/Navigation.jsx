@@ -1,7 +1,5 @@
 import { NavLink } from 'react-router-dom';
 import { useAuth } from 'hooks/useAuth';
-import { Icon } from '@chakra-ui/react';
-import { RiContactsBookFill } from 'react-icons/ri';
 import css from '../Navigation/Navigation.module.css';
 
 const Navigation = () => {
@@ -11,7 +9,7 @@ const Navigation = () => {
     <nav>
       <div className={css.wrapper}>
         <NavLink to="/" className={css.linkPB}>
-          <Icon as={RiContactsBookFill} /> Phonebook
+          Phonebook
         </NavLink>
         {isLoggedIn && (
           <NavLink to="/contacts" className={css.link}>

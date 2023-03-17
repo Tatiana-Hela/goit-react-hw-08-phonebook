@@ -11,11 +11,11 @@
 }
 .link:hover,
 .link:focus {
-  color: #007d34;
+  color: #589f2d;
   background-color: #fff;
 }
 .link:global(.active) {
-  color: #007d34;
+  color: #589f2d;
   background-color: #fff;
 }
 .wrapperLink {

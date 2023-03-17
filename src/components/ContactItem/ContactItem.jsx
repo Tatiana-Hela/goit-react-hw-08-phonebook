@@ -53,7 +53,7 @@ const ContactItem = ({ id, name, number }) => {
         alignItems="center"
       >
         <Box display="block">
-          <Text fontSize="20px" fontWeight="500">
+          <Text fontSize="20px" fontWeight="500" color="#2a2a2a">
             {name}
           </Text>
           <Text fontSize="18px" color="#5F5F5F">

@@ -19,8 +19,8 @@ const UserMenu = () => {
   return (
     <div className={css.wrapper}>
       <p className={css.text}>{name}</p>
-      <IconButton className={css.button} onClick={onLogout}>
-        <Icon as={FiLogOut} width="24px" height="24px" />
+      <IconButton onClick={onLogout} backgroundColor="#fff" ml="6px">
+        <Icon as={FiLogOut} width="24px" height="24px" color="#589F2D" />
       </IconButton>
     </div>
   );
