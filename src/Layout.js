@@ -1,8 +1,8 @@
 import Navbar from 'components/Navbar/Navbar';
 import { Suspense } from 'react';
-import Footer from 'components/footer/Footer';
 import { Outlet } from 'react-router-dom';
 import { Box } from '@chakra-ui/react';
+import Footer from 'components/Footer/Footer';
 
 const Layout = () => {
   return (

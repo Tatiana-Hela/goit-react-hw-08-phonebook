@@ -1,7 +1,6 @@
 import { AiFillHeart } from 'react-icons/ai';
 import { Box, Text, Icon } from '@chakra-ui/react';
-import css from '../footer/footer.module.css';
-
+import css from '../Footer/Footer.module.css';
 const Footer = () => {
   return (
     <footer className={css.footer}>
