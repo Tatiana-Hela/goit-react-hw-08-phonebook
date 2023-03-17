@@ -3,7 +3,6 @@ import { Suspense } from 'react';
 import Footer from 'components/Footer/Footer';
 import { Outlet } from 'react-router-dom';
 import { Box } from '@chakra-ui/react';
-import { ClipLoader } from 'react-spinners';
 
 const Layout = () => {
   return (
