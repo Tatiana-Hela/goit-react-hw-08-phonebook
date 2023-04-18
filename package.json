@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://Tatiana-Hela.github.io/goit-react-hw-08-phonebook/",
   "dependencies": {
+    "@babel/types": "^7.21.4",
     "@chakra-ui/icons": "^2.0.17",
     "@chakra-ui/react": "^2.5.1",
     "@reduxjs/toolkit": "^1.9.3",
