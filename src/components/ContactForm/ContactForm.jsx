@@ -62,7 +62,7 @@ const ContactForm = () => {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <FormControl width="350px">
+      <FormControl width={{ base: '100%', sm: '350px' }}>
         <FormLabel htmlFor="name">Name</FormLabel>
         <InputGroup>
           <InputLeftElement
@@ -81,7 +81,7 @@ const ContactForm = () => {
             required
           />
         </InputGroup>
-        <FormLabel htmlFor="number" mt="15px">
+        <FormLabel htmlFor="number" mt={{ base: '15px', sm: '0' }}>
           Number
         </FormLabel>
         <InputGroup>
@@ -101,7 +101,13 @@ const ContactForm = () => {
             required
           />
         </InputGroup>
-        <Button type="submit" colorScheme="blue" mt="20px" borderRadius="6px">
+        <Button
+          type="submit"
+          colorScheme="blue"
+          mt="20px"
+          borderRadius="6px"
+          ml={{ sm: '10px' }}
+        >
           Add <Icon as={MdAddCircle} width="24px" height="24px" pl="6px" />
         </Button>
       </FormControl>

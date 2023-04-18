@@ -1,7 +1,6 @@
 import { useState, useCallback } from 'react';
 import initialState from './initialState';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
-
 import {
   Button,
   Input,
@@ -37,7 +36,7 @@ const LoginForm = ({ onSubmit }) => {
   return (
     <form onSubmit={handleSubmit}>
       <FormControl
-        boxSize="400"
+        boxSize={{ base: '100%', sm: '400px' }}
         display="flex"
         flexDirection="column"
         isRequired
@@ -85,4 +84,5 @@ const LoginForm = ({ onSubmit }) => {
     </form>
   );
 };
+
 export default LoginForm;

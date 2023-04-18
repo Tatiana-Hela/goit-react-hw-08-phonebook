@@ -38,7 +38,7 @@ const RegisterForm = ({ onSubmit }) => {
   return (
     <form onSubmit={handleSubmit}>
       <FormControl
-        boxSize="400"
+        boxSize={{ base: '100%', sm: '400px' }}
         display="flex"
         flexDirection="column"
         isRequired

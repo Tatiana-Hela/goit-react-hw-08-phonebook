@@ -9,17 +9,29 @@
   padding: 4px 8px;
   border-radius: 6px;
 }
+
 .link:hover,
 .link:focus {
   color: #589f2d;
   background-color: #fff;
 }
+
 .link:global(.active) {
   color: #589f2d;
   background-color: #fff;
 }
+
 .wrapperLink {
   display: flex;
   align-items: center;
   margin-left: auto;
+}
+
+@media (max-width: 767px) {
+  .linkText {
+    display: none;
+  }
+  .link {
+    margin-right: 5px;
+  }
 }
