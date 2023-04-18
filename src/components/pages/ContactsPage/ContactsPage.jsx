@@ -29,7 +29,6 @@ const ContactsPage = () => {
       justify="space-between"
       m="0 auto"
       maxW={{ base: '100%', lg: '1200px' }}
-      px={{ base: '2', md: '0' }}
       py="12"
     >
       <VStack
@@ -40,6 +39,7 @@ const ContactsPage = () => {
         borderRadius="6px"
         boxShadow="0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);"
         border="1px solid #EBEBEB"
+        height="100%"
       >
         <Text fontSize="24px" fontWeight="500">
           Add contacts

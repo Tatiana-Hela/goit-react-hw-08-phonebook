@@ -2,7 +2,6 @@ import Navbar from 'components/Navbar/Navbar';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Box } from '@chakra-ui/react';
-// import Footer from '../src/components/Footer/Footer';
 
 const Layout = () => {
   return (
@@ -16,7 +15,6 @@ const Layout = () => {
             <Outlet fallback={null} />
           </Box>
         </main>
-        {/* <Footer /> */}
       </Suspense>
     </>
   );

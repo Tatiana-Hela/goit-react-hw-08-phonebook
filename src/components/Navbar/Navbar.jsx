@@ -12,7 +12,7 @@ function ThemeSwitcher() {
 
   return (
     <>
-      <Icon as={FaSun} color="#fff" />
+      <Icon as={FaSun} color="#fff" ml="8px" />
       <Switch
         colorScheme="gray"
         isChecked={isChecked}

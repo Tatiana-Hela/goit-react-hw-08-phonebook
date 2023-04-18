@@ -64,12 +64,12 @@ const EditModal = ({ isOpen, handleClose, id, name, number }) => {
   return (
     <Modal isOpen={isOpen} onClose={handleClose}>
       <ModalOverlay />
-      <ModalContent>
+      <ModalContent marginX="10px">
         <ModalHeader textAlign="center" fontSize="22px" fontWeight="500">
           Edit contact
         </ModalHeader>
         <ModalCloseButton />
-        <ModalBody pb={6}>
+        <ModalBody>
           <form onSubmit={handleSubmit}>
             <FormControl>
               <FormLabel htmlFor="name">Name</FormLabel>

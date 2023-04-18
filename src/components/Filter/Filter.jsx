@@ -13,7 +13,7 @@ const Filter = () => {
   const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
   return (
-    <FormControl boxSize={{ base: '100%', sm: '400px' }}>
+    <FormControl boxSize={{ base: '100%' }}>
       <InputGroup>
         <InputRightElement
           pointerEvents="none"

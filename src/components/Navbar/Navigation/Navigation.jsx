@@ -13,9 +13,16 @@ const Navigation = () => {
   return (
     <nav>
       <div className={css.wrapper}>
-        <NavLink to="/" className={css.linkPB}>
-          Phonebook
-        </NavLink>
+        {!isLoggedIn && (
+          <NavLink to="/" className={css.linkPB}>
+            Phonebook
+          </NavLink>
+        )}
+        {!isMobile && (
+          <NavLink to="/" className={css.linkPB}>
+            Phonebook
+          </NavLink>
+        )}
         {isLoggedIn && isMobile && (
           <NavLink to="/contacts">
             <IconButton backgroundColor="#fff" ml="6px">

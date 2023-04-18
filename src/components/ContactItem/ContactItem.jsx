@@ -17,6 +17,7 @@ import EditModal from 'components/EditModal.jsx/EditModal';
 const ContactItem = ({ id, name, number }) => {
   const toast = useToast();
   const [isOpen, setIsOpen] = useState(false);
+
   const dispatch = useDispatch();
 
   const handleOpenModal = () => setIsOpen(true);
@@ -49,11 +50,10 @@ const ContactItem = ({ id, name, number }) => {
         boxShadow="0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);"
         p="6px 10px"
         borderRadius="6px"
-        bg="#F4F4F4"
         alignItems="center"
       >
         <Box display="block">
-          <Text fontSize="20px" fontWeight="500" color="#2a2a2a">
+          <Text fontSize="20px" fontWeight="500">
             {name}
           </Text>
           <Text fontSize="18px" color="#5F5F5F">
