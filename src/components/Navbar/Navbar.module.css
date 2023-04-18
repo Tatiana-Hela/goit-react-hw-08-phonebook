@@ -5,14 +5,17 @@
   margin-left: auto;
   margin-right: auto;
 }
-.linkContacts {
-  color: #fff;
-  text-decoration: none;
-  margin-right: auto;
-}
-.linkContacts:hover {
-  color: rgb(22, 173, 179);
-}
-.linkContacts:global(.active) {
-  color: rgb(22, 173, 179);
+
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 10px;
+    justify-content: space-between;
+  }
+  .header > * {
+    margin: 0;
+  }
+
+  .header > nav {
+    margin-right: auto;
+  }
 }
