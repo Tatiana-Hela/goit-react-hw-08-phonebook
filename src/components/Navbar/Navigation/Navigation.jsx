@@ -17,14 +17,16 @@ const Navigation = () => {
           Phonebook
         </NavLink>
         {isLoggedIn && isMobile ? (
-          <IconButton backgroundColor="#fff" ml="6px">
-            <Icon
-              as={RiContactsFill}
-              width="24px"
-              height="24px"
-              color="#589F2D"
-            />
-          </IconButton>
+          <NavLink to="/contacts">
+            <IconButton backgroundColor="#fff" ml="6px">
+              <Icon
+                as={RiContactsFill}
+                width="24px"
+                height="24px"
+                color="#589F2D"
+              />
+            </IconButton>
+          </NavLink>
         ) : (
           <NavLink to="/contacts" className={css.link}>
             Contacts

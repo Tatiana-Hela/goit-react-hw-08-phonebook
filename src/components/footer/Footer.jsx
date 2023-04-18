@@ -5,10 +5,23 @@ import css from '../Footer/Footer.module.css';
 const Footer = () => {
   return (
     <footer className={css.footer}>
-      <Box maxWidth="1240px" padding="0 16px" textDecoration="overline">
-        <Text color="gray" textDecoration="overline">
+      <Box
+        maxWidth="1240px"
+        padding={{ base: '0 16px', md: '0 32px' }}
+        textDecoration="overline"
+      >
+        <Text
+          color="gray"
+          textAlign={{ base: 'center', md: 'left' }}
+          textDecoration="overline"
+        >
           © 2023 | All Rights Reserved | Developed by{' '}
-          <Icon as={AiFillHeart} color="#589F2D" width="24px" height="24px" />{' '}
+          <Icon
+            as={AiFillHeart}
+            color="#589F2D"
+            width={{ base: '20px', md: '24px' }}
+            height={{ base: '20px', md: '24px' }}
+          />{' '}
           <a className={css.link} href="https://github.com/Tatiana-Hela">
             Tetiana Hela.
           </a>
