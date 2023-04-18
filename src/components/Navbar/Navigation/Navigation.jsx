@@ -18,11 +18,7 @@ const Navigation = () => {
             Phonebook
           </NavLink>
         )}
-        {!isMobile && (
-          <NavLink to="/" className={css.linkPB}>
-            Phonebook
-          </NavLink>
-        )}
+
         {isLoggedIn && isMobile && (
           <NavLink to="/contacts">
             <IconButton backgroundColor="#fff" ml="6px">
